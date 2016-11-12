@@ -21,6 +21,9 @@
 		181A204A1DD620F400843D5F /* HWTest2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A203D1DD620F400843D5F /* HWTest2ViewController.xib */; };
 		181A204C1DD621E500843D5F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A204B1DD621E500843D5F /* main.m */; };
 		181A20521DD6427200843D5F /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A20511DD6427200843D5F /* UIBarButtonItem+Extension.m */; };
+		181A20551DD6CCF000843D5F /* HWSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A20541DD6CCF000843D5F /* HWSearchBar.m */; };
+		181A20581DD7160400843D5F /* HWdropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A20571DD7160400843D5F /* HWdropdownMenu.m */; };
+		181A205B1DD723E800843D5F /* HWTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A205A1DD723E800843D5F /* HWTitleMenuViewController.m */; };
 		18CCEA851DD572D600A88A11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CCEA841DD572D600A88A11 /* Assets.xcassets */; };
 		18CCEA931DD572D600A88A11 /* __Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CCEA921DD572D600A88A11 /* __Tests.m */; };
 		18CCEA9E1DD572D600A88A11 /* __UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CCEA9D1DD572D600A88A11 /* __UITests.m */; };
@@ -69,6 +72,12 @@
 		181A204B1DD621E500843D5F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Temp/main.m; sourceTree = "<group>"; };
 		181A20501DD6427200843D5F /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		181A20511DD6427200843D5F /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		181A20531DD6CCF000843D5F /* HWSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWSearchBar.h; sourceTree = "<group>"; };
+		181A20541DD6CCF000843D5F /* HWSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWSearchBar.m; sourceTree = "<group>"; };
+		181A20561DD7160400843D5F /* HWdropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWdropdownMenu.h; sourceTree = "<group>"; };
+		181A20571DD7160400843D5F /* HWdropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWdropdownMenu.m; sourceTree = "<group>"; };
+		181A20591DD723E800843D5F /* HWTitleMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWTitleMenuViewController.h; sourceTree = "<group>"; };
+		181A205A1DD723E800843D5F /* HWTitleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWTitleMenuViewController.m; sourceTree = "<group>"; };
 		181F92181DD5A483000E1722 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18CCEA751DD572D600A88A11 /* 微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18CCEA841DD572D600A88A11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +163,8 @@
 			children = (
 				181A20151DD620F400843D5F /* HWHomeViewController.h */,
 				181A20161DD620F400843D5F /* HWHomeViewController.m */,
+				181A20591DD723E800843D5F /* HWTitleMenuViewController.h */,
+				181A205A1DD723E800843D5F /* HWTitleMenuViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -217,6 +228,10 @@
 		181A20261DD620F400843D5F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				181A20531DD6CCF000843D5F /* HWSearchBar.h */,
+				181A20541DD6CCF000843D5F /* HWSearchBar.m */,
+				181A20561DD7160400843D5F /* HWdropdownMenu.h */,
+				181A20571DD7160400843D5F /* HWdropdownMenu.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -534,13 +549,16 @@
 			files = (
 				181A20411DD620F400843D5F /* UIView+Extension.m in Sources */,
 				181A20401DD620F400843D5F /* AppDelegate.m in Sources */,
+				181A20551DD6CCF000843D5F /* HWSearchBar.m in Sources */,
 				181A203F1DD620F400843D5F /* HWHomeViewController.m in Sources */,
+				181A205B1DD723E800843D5F /* HWTitleMenuViewController.m in Sources */,
 				181A203E1DD620F400843D5F /* HWDiscoverViewController.m in Sources */,
 				181A20421DD620F400843D5F /* HWNavigationController.m in Sources */,
 				181A20491DD620F400843D5F /* HWTest2ViewController.m in Sources */,
 				181A20471DD620F400843D5F /* HWTest1ViewController.m in Sources */,
 				181A20431DD620F400843D5F /* HWTabbarViewController.m in Sources */,
 				181A20451DD620F400843D5F /* HWMessageCenterViewController.m in Sources */,
+				181A20581DD7160400843D5F /* HWdropdownMenu.m in Sources */,
 				181A20521DD6427200843D5F /* UIBarButtonItem+Extension.m in Sources */,
 				181A204C1DD621E500843D5F /* main.m in Sources */,
 				181A20461DD620F400843D5F /* HWProfileViewController.m in Sources */,

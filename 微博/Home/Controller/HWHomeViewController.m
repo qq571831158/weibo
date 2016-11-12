@@ -7,6 +7,8 @@
 //
 
 #import "HWHomeViewController.h"
+#import "HWdropdownMenu.h"
+#import "HWTitleMenuViewController.h"
 @interface HWHomeViewController ()
 
 @end
@@ -15,10 +17,47 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置导航栏左右内容
     self.navigationItem.leftBarButtonItem =[UIBarButtonItem itemWithTarget:self action:@selector(friendsearch) image:@"navigationbar_friendsearch" highlightedImage:@"navigationbar_friendsearch_highlighted"];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highlightedImage:@"navigationbar_pop_highlighted"];
+    //设置导航栏中间内容
+    UIButton *titleButton = [[UIButton alloc]init];
+    titleButton.width = 150;
+    titleButton.height = 30;
+    [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    titleButton.titleLabel.font = [UIFont systemFontOfSize:17];
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 70, 0, 0);
+    titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
+    [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = titleButton;
 }
-
+-(void)titleClick:(UIButton *) titleButton{
+//    UIWindow *window = [UIApplication sharedApplication].windows.lastObject;
+//    UIView *cover = [[UIView alloc]init];
+//    cover.backgroundColor = [UIColor clearColor];
+//    cover.frame = window.frame;
+//    
+//    [window addSubview: cover];
+//    
+//    UIImageView *dropdownMenu = [[UIImageView alloc]init];
+//    dropdownMenu.image = [UIImage imageNamed:@"popover_background"];
+//    dropdownMenu.width = 217;
+//    dropdownMenu.height = 217;
+//    dropdownMenu.y = 40;
+//    dropdownMenu.userInteractionEnabled = YES;
+//    [dropdownMenu addSubview:[UIButton buttonWithType:UIButtonTypeContactAdd]];
+    
+//    [cover addSubview:dropdownMenu];
+    HWdropdownMenu *menu = [HWdropdownMenu menu];
+    //menu.content = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 100) style:UITableViewStylePlain];
+    HWTitleMenuViewController *vc = [[HWTitleMenuViewController alloc]init];
+    vc.view.height = 44*3;
+    vc.view.width = 150;
+    menu.contentController = vc;
+    [menu showFrom:titleButton];
+}
 
 -(void)friendsearch{
     NSLog(@"friend");

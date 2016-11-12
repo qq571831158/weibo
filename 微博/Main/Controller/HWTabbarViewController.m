@@ -39,7 +39,7 @@
     childVc.tabBarItem.image = [UIImage imageNamed:image];
     childVc.tabBarItem.selectedImage=[[UIImage imageNamed:selectedImage]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     NSMutableDictionary *textarr = [NSMutableDictionary dictionary];
-    textarr[NSForegroundColorAttributeName] = HWColor(123, 123, 123);
+    textarr[NSForegroundColorAttributeName] = [UIColor blackColor];
     NSMutableDictionary *selectedtextarr = [NSMutableDictionary dictionary];
     selectedtextarr[NSForegroundColorAttributeName] = [UIColor orangeColor];
     [childVc.tabBarItem setTitleTextAttributes:textarr forState:UIControlStateNormal];
