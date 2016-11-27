@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "HWTabbarViewController.h"
+#import "HWOAuthViewController.h"
+#import "HWAccount.h"
+#import "HWAccountTool.h"
 @interface AppDelegate ()
 
 @end
@@ -19,10 +22,22 @@
     //1.创建窗口
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    //2.设置根控制器
-    self.window.rootViewController = [[HWTabbarViewController alloc]init];
-    //3.显示窗口
+    
+    //2.显示窗口
     [self.window  makeKeyAndVisible];
+    //3.设置根控制器
+    
+    HWAccount *account = [HWAccountTool account];
+    
+    if(account){
+        //存储在沙盒中的版本号(上一次的版本号)
+        [UIWindow switchRootViewController];
+            }
+    else{
+        self.window.rootViewController = [[HWOAuthViewController alloc]init];
+    }
+
+   
     return YES;
 }
 

@@ -16,4 +16,5 @@
 #define HWRandomColor   [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:(256)/255.0 blue:(256)/255.0 alpha:1.0]
 #import "UIView+Extension.h"
 #import "UIBarButtonItem+Extension.h"
+#import "UIWindow+Extension.h"
 #endif /* PrefixHeader_pch */

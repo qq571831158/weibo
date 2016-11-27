@@ -9,7 +9,7 @@
 #import "HWHomeViewController.h"
 #import "HWdropdownMenu.h"
 #import "HWTitleMenuViewController.h"
-@interface HWHomeViewController ()
+@interface HWHomeViewController ()<HWdropdownMenuDelegate>
 
 @end
 
@@ -28,6 +28,7 @@
     [titleButton setTitle:@"首页" forState:UIControlStateNormal];
     titleButton.titleLabel.font = [UIFont systemFontOfSize:17];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 70, 0, 0);
     titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
     [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -51,12 +52,26 @@
     
 //    [cover addSubview:dropdownMenu];
     HWdropdownMenu *menu = [HWdropdownMenu menu];
+    menu.delegate = self;
     //menu.content = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 0, 100) style:UITableViewStylePlain];
     HWTitleMenuViewController *vc = [[HWTitleMenuViewController alloc]init];
     vc.view.height = 44*3;
     vc.view.width = 150;
     menu.contentController = vc;
     [menu showFrom:titleButton];
+}
+
+-(void)dropdownMenuDidDismiss:(HWdropdownMenu *)menu{
+    UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+    titleButton.selected = NO;
+    //[titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+}
+
+-(void)dropdownMenuDidShow:(HWdropdownMenu *)menu{
+    UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+    titleButton.selected = YES;
+    //[titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+
 }
 
 -(void)friendsearch{

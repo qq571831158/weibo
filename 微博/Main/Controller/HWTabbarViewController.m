@@ -12,7 +12,8 @@
 #import "HWDiscoverViewController.h"
 #import "HWProfileViewController.h"
 #import "HWNavigationController.h"
-@interface HWTabbarViewController ()
+#import "HWTabBar.h"
+@interface HWTabbarViewController ()<HWTabbarDelegate>
 
 @end
 
@@ -28,7 +29,12 @@
     [self addChildVc:discover title:@"发现" image:@"tabbar_discover" selectImage:@"tabbar_discover_selected"];
     HWProfileViewController *profile = [[HWProfileViewController alloc]init];
     [self addChildVc:profile title:@"我" image:@"tabbar_profile" selectImage:@"tabbar_profile_selected"];
-}
+    //2.更换系统系在的tabbar
+   // self.tabBar = [[HWTabbar alloc]init];
+    HWTabBar *tabBar = [[HWTabBar alloc]init];
+    tabBar.delegate = self;
+    [self setValue:tabBar forKeyPath:@"tabBar"];
+    }
 
 -(void )addChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectImage:(NSString *)selectedImage
 {
@@ -47,6 +53,13 @@
     //childVc.view.backgroundColor = HWRandomColor ;
     HWNavigationController *nav = [[HWNavigationController alloc]initWithRootViewController:childVc];
     [self addChildViewController:nav];
+}
+
+
+-(void)tabBarDidClickPlusButton:(HWTabBar *)tabBar{
+    UIViewController *vc = [[UIViewController alloc]init];
+    vc.view.backgroundColor = [UIColor redColor];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

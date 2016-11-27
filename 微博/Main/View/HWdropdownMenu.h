@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class HWdropdownMenu;
+@protocol HWdropdownMenuDelegate <NSObject>
+-(void)dropdownMenuDidDismiss:(HWdropdownMenu *)menu;
+-(void)dropdownMenuDidShow:(HWdropdownMenu *)menu;
+@end
 @interface HWdropdownMenu : UIView
+@property (nonatomic, weak) id<HWdropdownMenuDelegate>delegate;
+
 +(instancetype)menu;
 
 -(void)showFrom:(UIView *)from;;
